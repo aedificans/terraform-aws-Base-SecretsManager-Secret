@@ -2,7 +2,7 @@ module "kms" {
   count = var.enable_encryption && var.kms_key_arn == null ? 1 : 0
 
   source  = "app.terraform.io/aedificans/Base-KMS-Key/aws"
-  version = "1.0.0"
+  version = "1.0.1"
 
   naming              = var.naming
   environment         = var.environment
