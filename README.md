@@ -20,7 +20,7 @@ Terraform module which creates a SecretsManager Secret
 
 | Name | Source | Version |
 |------|--------|---------|
-| <a name="module_kms"></a> [kms](#module\_kms) | app.terraform.io/aedificans/Base-KMS-Key/aws | 1.0.0 |
+| <a name="module_kms"></a> [kms](#module\_kms) | app.terraform.io/aedificans/Base-KMS-Key/aws | 1.0.1 |
 
 ## Resources
 
@@ -41,7 +41,7 @@ Terraform module which creates a SecretsManager Secret
 | <a name="input_naming"></a> [naming](#input\_naming) | A naming object to provide the display name of the service from the service catalog, and optionally also a resource name | <pre>object({<br>    display  = string<br>    resource = optional(string, null)<br>  })</pre> | n/a | yes |
 | <a name="input_recovery_window_in_days"></a> [recovery\_window\_in\_days](#input\_recovery\_window\_in\_days) | The number of days to persist a secret after deletion for recovery | `number` | `0` | no |
 | <a name="input_secret_string"></a> [secret\_string](#input\_secret\_string) | A secret string | `string` | `null` | no |
-| <a name="input_tagging"></a> [tagging](#input\_tagging) | A collection of tags as key-value pairs to be applied to all applicable provisioned resources | <pre>object({<br>    additional_tags = optional(map(any), {})<br>    network         = optional(string, null)<br>    organization    = string<br>    owner           = string<br>    service_pattern = string<br>    tag_key_prefix  = string<br>  })</pre> | n/a | yes |
+| <a name="input_tagging"></a> [tagging](#input\_tagging) | A collection of tags as key-value pairs to be applied to all applicable provisioned resources | <pre>object({<br>    additional_tags = optional(map(any), {})<br>    network         = optional(string, null)<br>    organization    = string<br>    owner           = string<br>    service_name    = optional(string, null)<br>    service_pattern = string<br>    tag_key_prefix  = string<br>  })</pre> | n/a | yes |
 
 ## Outputs
 
