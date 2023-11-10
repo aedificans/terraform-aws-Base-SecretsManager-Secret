@@ -1,6 +1,8 @@
 resource "aws_secretsmanager_secret" "this" {
-  name                    = local.naming.resource
-  kms_key_id              = var.enable_encryption ? coalesce(var.kms_key_arn, module.kms[0].arn) : null
+  name = local.naming.resource
+  kms_key_id = var.enable_encryption ? (
+    var.kms_key_arn == null ? module.kms[0].arn : var.kms_key_arn
+  ) : null
   recovery_window_in_days = var.recovery_window_in_days
 
   tags = merge(
