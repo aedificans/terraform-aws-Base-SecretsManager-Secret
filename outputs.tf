@@ -7,7 +7,7 @@ output "name" {
   description = "The Name attribute of the secret"
 }
 output "key_arn" {
-  value       = var.enable_encryption && var.kms_key_arn == null ? module.kms[0].arn : null
+  value       = var.enable_encryption && var.kms_key_arn == null ? module.kms[0].arn : var.kms_key_arn
   description = "The ARN of the KMS Key"
 }
 output "key_id" {

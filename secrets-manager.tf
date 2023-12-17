@@ -1,5 +1,6 @@
 resource "aws_secretsmanager_secret" "this" {
-  name = local.naming.resource
+  description = var.description
+  name        = local.naming.resource
   kms_key_id = var.enable_encryption ? (
     var.kms_key_arn == null ? module.kms[0].arn : var.kms_key_arn
   ) : null
