@@ -28,11 +28,11 @@ variable "naming" {
 
   validation {
     condition     = can(regex("^[a-zA-Z 0-9\\-]*$", var.naming.display))
-    error_message = "The service display name must only contain alphanumeric characters, spaces, and hyphens"
+    error_message = "The secret display name must only contain alphanumeric characters, spaces, and hyphens"
   }
   validation {
-    condition     = can(regex("^[a-z0-9\\-]*$", var.naming.resource)) || var.naming.resource == null
-    error_message = "If provided, the service resource name must be kebab case"
+    condition     = can(regex("^[a-z0-9\\-/]*$", var.naming.resource)) || var.naming.resource == null
+    error_message = "If provided, the secret resource name must be kebab case with an optional path structure using `/`s"
   }
 }
 variable "tagging" {
